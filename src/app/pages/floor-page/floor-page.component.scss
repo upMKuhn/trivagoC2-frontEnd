@@ -1,0 +1,33 @@
+@import '../../CssUtils/myUtils.scss';
+
+
+    .p-floor-page--openIssueTable{
+        .c-issue-table--title-icon{
+            color: $blue;
+        }
+    }
+
+    
+    .p-floor-page--progressIssueTable{
+        .c-issue-table--title-icon{
+            color: $green;
+        }
+    }
+    
+    .p-floor-page--blockedIssueTable{
+        .c-issue-table--title-icon{
+            color: $red;
+        }
+    }
+
+    .p-floor-page--resolvedIssueTable{
+        .c-issue-table--title-icon{
+            color: $green;
+        }
+    }
+
+    .p-floor-page--title{
+        font-size: 20px;
+        margin: 2em;
+        margin-bottom:0; 
+    }

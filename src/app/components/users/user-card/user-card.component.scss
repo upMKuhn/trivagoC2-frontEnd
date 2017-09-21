@@ -1,0 +1,64 @@
+@import '../../../CssUtils/myUtils.scss';
+
+.c-user-card--profileImg{
+    height: 5em;
+    margin-right: 5px;
+    border-right: 1px solid $gray-600;
+}
+
+.c-user-card{
+    @extend .ui-box-shadow;
+    display: flex;
+    font-size: 16px;
+    line-height: 1.25;
+    padding: 0.5em 1em;
+
+    input {
+        display: inline-block;
+    }
+}
+
+.c-user-card--form-grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 10px;
+
+    *{
+        padding: 10px 0;
+    }
+}
+
+.c-user-card--box{
+    padding: 10px;
+}
+
+.c-user-card--controls{
+    margin-left: auto;
+}
+
+.c-user-card-btn{
+    cursor: pointer;
+    padding: 1px;
+    &:hover{
+        border-radius: 25px;
+    }
+}
+
+.c-user-card--btn-edit{
+    @extend .c-user-card-btn;
+    color: $blue;
+    &:hover{
+        color: #fff !important;
+        background: $blue;
+    }
+}
+
+.c-user-card--btn-submit{
+    @extend .c-user-card-btn;
+    color: $green;
+    &:hover{
+        color: #fff !important;
+        background: $green;
+    }
+}
+

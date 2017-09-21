@@ -1,0 +1,18 @@
+
+<nav class="c-navbar--main">
+  <span class="brand-name"><a href="/buildings">Trivago </a></span>
+  
+  <div class="c-navbar--nav-list">
+      <a class="nav-item" href="/buildings">Home</a>
+  </div>
+
+  <div class="ui-group ml-auto c-navbar--profile">
+    <span class="material-icons">person</span>
+    <span *ngIf="loggedIn()" class="">
+      {{user.username}}
+    </span>
+    <a *ngIf="!loggedIn()" href="/" class="">
+      Login
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,89 @@
+
+<div class="c-issue-table--container" *ngIf="issues.length != 0">
+  <h1 class="u-text-align--center">
+    <i class="material-icons c-issue-table--title-icon">{{tableTitleIcon}}</i> 
+    {{tableTitle}}
+  </h1>
+
+  <table>
+    <thead>
+      <th class="c-issue-table--column-small"></th>
+      <th class="c-issue-table--column-small">Priority</th>
+      <th>Title</th>
+      <th>Location</th>
+      <th class="c-issue-table--column-small">Raised by</th>
+      <th class="c-issue-table--column-small">Created</th>
+      <th class="c-issue-table--CategoryColumn c-issue-table--column-small">Category</th>
+      <th class="c-issue-table--action-column">Actions</th>
+    </thead>
+      <ng-container *ngFor="let issue of issues">
+          <tr class="c-issue-table--issue-row">
+            <td (click)="showCommentSection(issue)" class="c-issue-table--icon-column">
+              <md-icon>{{ openIssueCommentSection != null && openIssueCommentSection.id == issue.id 
+                    ? "chevron_right" : "keyboard_arrow_down" }}
+                </md-icon>
+            </td>
+            <!--Columns-->
+            <td (click)="showCommentSection(issue)" 
+                mdTooltip="{{issue.thePriority.name}}"
+                [ngClass]="issue.thePriority.toCssClass()"
+                class="c-issue-table--data-column c-issue-table--column-small c-issue-table--icon-column"
+            >
+                {{issue.thePriority.toMaterialIcon()}} 
+            </td>
+            <td (click)="showCommentSection(issue)" class="c-issue-table--data-column">
+              {{issue.theTitle}}
+            </td>
+            <td (click)="showCommentSection(issue)" class="c-issue-table--data-column">
+              {{issue.theLocation}}
+            </td>
+            <td (click)="showCommentSection(issue)" class="c-issue-table--data-column c-issue-table--column-small">
+                {{issue.creator.username}}
+            </td>
+            <td (click)="showCommentSection(issue)" class="c-issue-table--data-column c-issue-table--column-small">
+              {{issue.createdTimeAgo}}
+            </td>
+            <td (click)="showCommentSection(issue)" class="c-issue-table--data-column c-issue-table--column-small">
+              {{issue.theCategory.theName}}
+            </td>
+
+
+              <!--Actions -->
+
+            <td class="c-issue-table--action-column ">
+              <ul class="c-floor-table--action-list">
+                  <li *ngIf="user.isHero() && !hideActions.blockIssue">
+                    <i (click)="blockIssue(issue)"  mdTooltip="Block" class="material-icons btn-icon btn-icon-warning">block</i>
+                  </li>
+                  <li *ngIf="user.isHero() && !hideActions.progressIssue">
+                    <i  (click)="progressIssue(issue)" mdTooltip="Progress" class="material-icons btn-icon btn-icon-success">cached</i>
+                  </li>
+                  <li *ngIf="user.isHero() && !hideActions.resolveIssue">
+                      <i  (click)="resolveIssue(issue)" mdTooltip="Resolve" class="material-icons btn-icon btn-icon-success">done</i>
+                  </li>
+                  <li *ngIf="issue.canBeDeleted(user)">
+                    <i  (click)="deleteIssue(issue)" mdTooltip="Delete" class="material-icons btn-icon btn-icon-danger">delete</i>
+                </li>
+                <li>
+                  <button class="btn btn-info btn-small" *ngIf="!issue.isSubscriber(user)" [disabled]="isSubscribing" (click)="issue.subscribe(user)" > subscribe </button>
+                </li>
+                <li>
+                    <button class="btn btn-info btn-small" *ngIf="issue.isSubscriber(user)" (click)="issue.unsubscribe(user)"> unsubscribe </button>
+                  </li>
+              </ul>
+            </td>
+          </tr>
+
+          <!--Comment Section-->
+          <tr *ngIf="!(openIssueCommentSection == null || openIssueCommentSection.id != issue.id)">
+            <td colspan="8">
+              <div class="c-issue-table--comment-column">
+                  <app-comment-form #commentForm (commentPosted)="commentSec.onCommentAdded($event)" [issue]="issue" ></app-comment-form>
+                  <app-comment-section #commentSec [issue]="issue" >
+                  </app-comment-section>
+              </div>
+            </td>
+          </tr>
+      </ng-container>
+  </table>
+</div>

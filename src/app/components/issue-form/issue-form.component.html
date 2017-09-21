@@ -1,0 +1,43 @@
+
+<div class="c-issue-form--container">
+
+  <form [formGroup]="issueForm" (ngSubmit)="raiseIssue()" (keydown)="raiseIssueOnEnter($event)" class="c-issue-form--form">
+      <h1>How can we help?</h1>
+      <md-form-field class="ui-full-width">
+        <input 
+            mdInput md-autosize 
+            placeholder="What's wrong?" 
+            formControlName="title"
+        />
+        <md-error *ngIf="issueForm.get('title').hasError('required')">
+            The title is <strong>required</strong>
+        </md-error>
+        <md-error *ngIf="issueForm.get('title').hasError('minlength')">
+            A sensable title would be nice :)
+        </md-error>
+      </md-form-field>
+      
+      <md-form-field class="">
+          <input mdInput placeholder="Location" formControlName="location"/>
+          <md-error *ngIf="issueForm.get('location').hasError('required')">
+              The location description is <strong>required</strong>
+          </md-error>
+          <md-error *ngIf="issueForm.get('location').hasError('minlength')">
+              A sensable title would be nice :)
+          </md-error>
+      </md-form-field>
+      
+      <md-select placeholder="Category" formControlName="category">
+        <md-option *ngFor="let category of categoryStore.Categories"  [value]="category.theName">
+          {{ category.theName }}
+        </md-option>
+      </md-select>
+      <md-select placeholder="Priority" formControlName="priority">
+            <md-option *ngFor="let priority of priorityStore.Priorities" [value]="priority.theName">
+              {{ priority.theName }}
+            </md-option>
+        </md-select>
+      
+      <input class="btn btn-info" type="submit" value="raise issue!" md-button/>
+    </form>
+</div>

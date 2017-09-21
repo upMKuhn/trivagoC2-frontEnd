@@ -1,0 +1,14 @@
+@import '../../CssUtils/myUtils.scss';
+
+.c-issue-form--container{
+
+    display: grid;
+    .c-issue-form--form{
+        display: block;
+        width: 30em;
+        margin: 2em;
+    }
+
+    .mat-option{ text-align: center;}
+
+}

@@ -1,0 +1,19 @@
+  <div class="c-comment-form--container">
+    <md-form-field class="c-comment-form--text-area" >
+        <input 
+          mdInput
+          placeholder="Message"
+          [(ngModel)]="theMessage"
+          (keypress)="postOnEnter($event)"
+          #message
+        />
+        <md-hint align="end">{{message.value.length}} / {{messageMaxLen}}</md-hint>
+    </md-form-field>
+    
+    <button  class="c-comment-form--addComment btn btn-small btn-info" 
+      md-button (click)="post()"
+      [disabled]="message.value.length < messageMinLen"
+    >
+      COMMENT
+  </button>
+</div>

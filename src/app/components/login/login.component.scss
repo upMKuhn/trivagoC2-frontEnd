@@ -1,0 +1,19 @@
+@import '../../CssUtils/myUtils.scss';
+
+
+form{
+  .ng-dirty.ng-invalid:not(.hideValidation){
+    border-color: $red;
+  }
+}
+
+form.login{
+  background: $white;
+  margin: $spacer*2;
+  max-width: 600px;
+
+  .btn-login{
+    margin-top: 10px;
+    width: stretch;
+  }
+}

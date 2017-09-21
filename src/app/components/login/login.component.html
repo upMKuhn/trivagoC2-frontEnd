@@ -1,0 +1,36 @@
+<form class="login container card u-box-shadow ml-auto" 
+  [formGroup]="loginForm" 
+  (ngSubmit)="onLogin(loginForm.value)">
+  <h2>Login with your email or password</h2>
+  <label for="userIdentification">    Username: </label>
+  <input 
+    type="text" 
+    placeholder="Username" 
+    name="userIdentification"
+    formControlName="userIdentification"
+  />
+  
+  <label for="password">    Password: </label>
+  <input class="hideValidation" type="password" placeholder="Password" name="password" formControlName="password"/>
+  <span>
+    <input type="checkbox" name="shouldRememberMe" class="u-display--inline-block" 
+    formControlName="shouldRememberMe"
+    />
+    <label for="shouldRememberMe" class="u-display--inline-block u-font-weight--normal">
+      Remember Me! 
+    </label>
+  </span>
+  <button class="btn-info btn-login">
+    Login
+  </button>
+</form>
+
+
+
+
+
+
+
+
+
+

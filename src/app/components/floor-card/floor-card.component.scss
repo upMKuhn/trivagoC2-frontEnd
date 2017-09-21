@@ -1,0 +1,136 @@
+@import '../../CssUtils/myUtils.scss';
+
+.c-floor-card{
+    @extend .u-box-shadow;    
+    background: $white;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    width: 100%;
+    float: left;
+    text-align: center;
+    height: 100%;
+    margin-bottom: 1em;
+    
+    &:hover {
+        .c-floor-card--block-cover{
+            animation: hideBlockCover 0.3s forwards;
+        }
+    }
+}
+
+/**
+    ---------------------------------------------
+    |       Block cover \ hover effect          |
+    ---------------------------------------------
+*/
+    @keyframes hideBlockCover {
+        0% {
+        opacity: 1;
+        z-index: 1;
+        }
+        99% {
+        opacity: 0;
+        z-index: 0;
+        }
+        100% {
+        opacity: 0;
+        z-index: -1;
+        }
+    }
+    
+    .c-floor-card--block{
+        height: 100%;        
+    }
+    .c-floor-card--block-cover{
+        
+        border-radius: 5px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        transition: opacity .3s linear;
+        font-size: 22px;
+        font-weight: bold;
+        .c-floor-card--block-cover-form{
+            border-radius: 250px;
+            font-weight: normal;
+            color: $green;
+            font-size: 50px;
+        }
+    }
+
+/**
+    ---------------------------------------------
+    |       Form and Display of Content         |
+    ---------------------------------------------
+*/
+
+    .c-floor-card--container{
+        border: 1px $white solid;
+        border-radius: 5px;
+        box-sizing: border-box;
+        
+        display: grid;
+        grid-template-columns: 1fr 3em;
+
+        .c-floor-card-content{
+            cursor: pointer;
+            display: grid;
+            padding: 1em 0 1em 1em;
+            grid-template-columns: 1fr 2fr;
+            .c-floor-card--container-label{
+                border-bottom: 1px solid $gray-400;
+                display: inline-block;
+                font-weight: bold;
+            }
+            
+            .c-floor-card--container-value{
+                border-bottom: 1px solid $gray-400;
+                display: inline-block;
+                text-align: center;
+            }
+        }
+
+        .c-floor-card-controls{
+            border-left: 1px $gray-400 solid;
+            justify-content: center;
+            padding-top: calc(50% + 0.5em);
+            *{
+                float: right;
+            }
+        }
+
+
+        &.c-floor-card--form{
+            .c-floor-card-content{
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                align-self: center;
+                padding-right: 1em;
+            }
+            label{
+                padding-top: 0.5em;
+                padding-right: 0.5em;
+            }
+            input{
+                font-size: 14px;
+                height: 1.75em;
+                width: 170px;
+                margin-top: 5px;
+            }
+        }
+    }
+
+
+
+
+
+
+

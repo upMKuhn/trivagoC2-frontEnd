@@ -1,0 +1,42 @@
+<div class="c-floor-card">
+  <div class="c-floor-card--block-cover">
+      <div *ngIf="!isFormCard" class="c-floor-card--container-value" > {{floor.getFloorNumber() + ' - ' + floor.getName()}} </div>
+      <div *ngIf="isFormCard" class="material-icons c-floor-card--block-cover-form" > add </div>
+  </div>
+
+    <div  *ngIf="!isFormCard" class="c-floor-card--container c-floor-card--block">
+      <div (click)="navigateToFloor()" class="c-floor-card-content">
+        <div class="c-floor-card--container-label">Floor</div>   
+        <div class="c-floor-card--container-value" > {{floor.floorNumber}} </div>
+
+          <div class="c-floor-card--container-label">Issues Queued:</div>   
+          <div class="c-floor-card--container-value" > {{floor.numberOfDoneIssues}} </div>
+
+          <div class="c-floor-card--container-label">Issues Resolved</div>   
+          <div class="c-floor-card--container-value" > {{floor.numberOfQueuedIssues}} </div>
+      </div>
+      <div class="c-floor-card-controls">
+        <span *ngIf="loggedInUser.canUserAlterBuildings()" (click)="remove()" class="material-icons btn-icon btn-icon-danger">delete</span>
+      </div>
+    </div>
+
+    <form *ngIf="isFormCard" 
+      (ngSubmit)="submitAddFloorForm()"
+      [formGroup]="addFloorForm" 
+      class="c-floor-card--container c-floor-card--form c-floor-card--block">
+      <div class="c-floor-card-content">
+        
+        <div class="remove only with-floor title"></div>
+        <label>Floor</label>
+        
+        <label>Number:</label>
+        <input placeholder="0" class="c-floor-card--input" name="floorNumber" type="text" formControlName="floorNumber"/>
+
+        <label>Name:</label>
+        <input placeholder="Tech #1" class="c-floor-card--input" name="floorNumber" type="text" formControlName="floorName"/>
+      </div>
+      <div class="c-floor-card-controls">
+        <span (click)="submitAddFloorForm()" class="material-icons btn-icon btn-icon-success ">done</span>
+      </div>
+    </form>
+</div>

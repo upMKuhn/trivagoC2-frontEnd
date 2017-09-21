@@ -1,0 +1,47 @@
+@import '../../CssUtils/myUtils.scss';
+
+app-navbar{
+  height: $navBarHeight;
+  display: block;
+}
+
+.c-navbar--main{
+  display:inline-grid;
+  height: $navBarHeight;
+}
+
+.c-navbar--profile{
+  padding: 1em; 
+}
+
+
+.c-navbar--main 
+{
+  
+  background: $primary-color;
+  border-bottom: 1px $gray-600 solid;
+  display: flex;
+  grid-auto-rows: 1;
+  > * {
+    display: inline-flex;
+    text-align: center !important;
+  }
+
+
+  .nav-item {
+    border-left: 1px solid $gray-600;
+    color: $black;
+    padding: $spacer $spacer;
+    font-weight: normal;
+  }
+  
+  .nav-item:last-child{
+    border-right: 1px solid $gray-600;
+  }
+  
+  .brand-name{
+    @extend .mv-2;
+    @extend .brand-name;
+    flex-grow: 2;
+  }
+}

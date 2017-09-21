@@ -1,0 +1,167 @@
+//http://cssutils.ci.trivago.pse/#border-radius
+@import 'theme';
+@import 'utils';
+@import 'animate';
+
+.ml-auto{
+    margin-left: auto;
+}
+
+.mv-2{
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.pv-2{
+    padding-left: $spacer;
+    padding-right: $spacer;
+}
+
+.ui-box-shadow{
+    box-shadow: 0 1px 4px rgba(41,51,57,.5);   
+}
+
+h1{
+    .material-icons{
+        position: relative;
+        top: 2.5px;
+    }
+}
+
+.btn.btn-large{
+    padding: $spacer $spacer;
+}
+.btn.btn-small{
+    padding: 5px;
+}
+
+
+.btn, button{
+    border: 1px solid $gray-600;
+    border-radius: 3px;
+    font-weight: 600;
+    font-family: Arial,Helvetica,Sans,Sans-Serif,Sans Serif;
+    padding: $spacer $spacer-sm;
+
+    &:disabled{
+        cursor: default;
+        opacity: 0.3;
+    }
+}
+
+
+.pull-right{ float: right;}
+.pull-left{ float: left;}
+
+form{
+    h2 {
+        font-weight: 400;
+        text-align: center;
+    }
+}
+
+.ui-full-width{
+    width: 100%;
+}
+
+input[type=password], 
+{
+    background: $white;
+    border: 1px solid  $gray-600;
+    font-size: 16px;
+    font-weight: 400;
+    height: 44px;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.inline-form{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    input{
+        display: inline-block;
+    }
+    label{
+        margin-right: 1em;
+        font-size: 22px;
+        line-height: 1.5;
+    }
+}
+
+
+.card{
+    border: 1px solid  $gray-600;
+    border-radius: 3px;
+    box-shadow: $gray-600;
+    padding: 30px;
+}
+
+.pageBody{
+    display: flex;
+    background: $gray-200;
+}
+
+.thumbnail{
+    height: 100px;
+}
+
+.profile {
+    border-radius: 20px;
+}
+
+.ui-ul-inlineList{
+    display: inline;
+    list-style: none;
+    li{
+        padding: 5px;
+        display: flex;
+    }
+}
+
+
+.btn-icon{
+    border-radius: 500px;
+    font-size: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0.25em;
+    text-align: center;
+    margin: 0 5px; 
+    cursor: pointer;
+
+    &.btn-icon-disabled{
+        opacity: 0.5;
+        cursor: default !important;
+    }
+
+    &.btn-icon-success{
+        color: $green;
+        &:hover{
+            color: $white;
+            background: $green;
+        } 
+    }
+    
+    
+    &.btn-icon-danger:not(.btn-icon-disabled){
+        color: inherit;
+        &:hover{
+            color: $white !important;
+            background: $red;
+            
+        }
+    }
+
+    &.btn-icon-warning:not(.btn-icon-disabled){
+        color: $orange;
+        &:hover{
+            color: $white;
+            background: $orange;
+        }
+    }
+
+    
+}

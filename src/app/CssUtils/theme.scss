@@ -1,0 +1,73 @@
+
+$white:  #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #EBECED !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #9ba2a6 !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:  #000 !default;
+
+$blue:    #007fad !default;
+$blue-light:    #3f9fc1 !default;
+$blue-dark:    #005f81 !default;
+$indigo:  #0C0B0D !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #F48F00 !default;
+$yellow:  #ffc107 !default;
+$green:   #428500 !default;
+$green-dark: #316300 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+
+$primary-color: $white;
+$secondary-color: $blue;
+$third-color: #37454D;
+
+$spacer-sm: 0.5em;
+$spacer: 1em;
+
+$footerHeight: 12vh;
+$navBarHeight: 4em;
+$bodyheight: (100vh - $footerHeight);
+
+.ui-body{
+   min-height: calc(#{$bodyheight} - #{$navBarHeight});
+   overflow: hidden;
+}
+app-footer{
+    display: block;
+}
+app-navbar{
+    display: block;
+}
+
+.brand-name{
+    font: bold 2em italic sans-serif;
+}
+
+form{
+    .ng-invalid.ng-dirty{
+        border-color: $red;
+        border-width: 3px;
+    }
+}
+
+.btn-info:not(.btn-disabled){
+    background: $blue;
+    color: $white;
+    margin: 0 5px;
+    cursor: pointer;
+
+    &:hover:enabled{
+        background: $blue-light;
+        color: $white;
+    }
+}
+

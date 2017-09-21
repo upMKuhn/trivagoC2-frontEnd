@@ -1,0 +1,17 @@
+<form class="c-user-card">
+  <img class="c-user-card--profileImg"  src="http://www.freeiconspng.com/uploads/profile-icon-9.png" alt="profile pic"/>
+  
+  <div class="c-user-card--form-grid">
+      <label class="">Username: </label>
+      <span *ngIf="!editMode">{{user.userName}}</span>
+      <input *ngIf="" />
+
+      <label class="">Email: </label>
+      <span *ngIf="!editMode" >{{user.email}}</span>
+  </div>
+  
+    <div class="c-user-card--controls">
+        <i class="material-icons c-user-card--btn-edit" (click)="edit()" *ngIf="!editMode && userCanEdit">mode_edit</i>
+        <i class="material-icons c-user-card--btn-submit" (click)="submit()" *ngIf="editMode && userCanEdit">done</i>
+    </div>
+</form>

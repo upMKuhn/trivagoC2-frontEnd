@@ -1,0 +1,15 @@
+@import '../../CssUtils/myUtils.scss';
+
+
+.p-user-gridContainer{
+    display: grid;
+    padding: 1em;
+
+    @media (min-width: 900px) {
+        grid-template-columns: repeat(2, 2fr);
+        grid-column-gap: 2em;
+    }
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

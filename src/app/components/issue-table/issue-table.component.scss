@@ -1,0 +1,52 @@
+@import '../../CssUtils/myUtils.scss';
+
+.c-issue-table--container{
+    padding: 1em;
+    margin: 3em 0;
+    
+    .c-issue-table--title-icon{
+        font-weight: bold;
+    }
+
+    table{ max-width: 100vw; }
+    table,tr,td{
+        border-width: 0;
+    }
+
+    th:first-child{
+        width: 2em;
+    }
+
+    th{
+        border-width: 0;
+        border-bottom-width: 1px;
+    }
+
+    //COLumns
+    .c-issue-table--issue-row{
+        cursor: pointer;
+    }
+    .c-issue-table--icon-column{
+        text-align: center;
+        font-size: 1.5em !important;
+    }
+    .c-issue-table--comment-column{
+        max-height: 50em;
+        overflow-y: auto;
+        padding: 0em 3em;
+    }
+    .c-issue-table--column-small{ width: 5em; }
+    .c-issue-table--action-column{
+        width: 15em;
+    }
+
+    .c-floor-table--action-list{
+        float: right;
+        list-style: none;
+        li{
+            display: inline-block;
+            font-weight: bold;
+        }
+    }
+}
+

@@ -1,0 +1,54 @@
+
+<h1 class="p-floor-page--title">
+    Issues for {{_floor.floorName}}
+    <button class="btn btn-info btn-small" *ngIf="loggedInUser.isHero() && !loggedInUser.isSubscribedToFloor(floor)" (click)="loggedInUser.subscribeFloor(floor)"> subscribe </button>
+    <button class="btn btn-info btn-small" *ngIf="loggedInUser.isHero() && loggedInUser.isSubscribedToFloor(floor)" (click)="loggedInUser.unsubscribeFloor(floor)"> unsubscribe </button>
+</h1>
+
+<app-issue-table 
+#openIssuesTable
+class="p-floor-page--openIssueTable"
+    [getIssues]="getOpenIssues" 
+    tableTitle="Open Issues" 
+    tableTitleIcon="check_box_outline_blank" 
+    [issues]="openIssues"
+    (onIssueChanged)="onIssueChanged($event)"
+    [IIssueStateService]="this">
+</app-issue-table>
+
+<app-issue-table class="p-floor-page--progressIssueTable"
+#progressingIssuesTable
+[getIssues]="getProgressingIssues"
+[hideActions]="{progressIssue:true}" 
+tableTitle="Progessing Issues" 
+tableTitleIcon="cached" 
+[issues]="progressingIssues"
+(onIssueChanged)="onIssueChanged($event)"
+[IIssueStateService]="this">
+</app-issue-table>
+
+<app-issue-table 
+class="p-floor-page--blockedIssueTable"
+#blockedIssuesTable
+[getIssues]="getBlockedIssues" 
+[hideActions]="{blockIssue:true}" 
+tableTitle="Blocked Issues" 
+tableTitleIcon="block" 
+[issues]="blockedIssues"
+(onIssueChanged)="onIssueChanged($event)"
+[IIssueStateService]="this">
+</app-issue-table>
+
+<app-issue-table 
+#resolvedIssuesTable
+class="p-floor-page--resolvedIssueTable"
+[getIssues]="getResolvedIssues" 
+[hideActions]="{resolveIssue:true}" 
+tableTitle="Resolved Issues" 
+tableTitleIcon="done" 
+(onIssueChanged)="onIssueChanged($event)"
+[issues]="resolvedIssues"
+[IIssueStateService]="this">
+</app-issue-table>
+
+<app-issue-form [floor]="floor" [onIssueAdded]="issueAdded"></app-issue-form>

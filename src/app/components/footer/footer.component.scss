@@ -1,0 +1,8 @@
+@import '../../CssUtils/myUtils.scss';
+
+.page-footer{
+
+    background: $third-color;
+    height: fit-content;
+    min-height: $footerHeight; 
+}

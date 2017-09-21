@@ -1,0 +1,11 @@
+<div class="c-comment--container" *ngFor="let comment of comments" >
+  
+  <div class="c-comment--author-container">
+      <span class="c-comment--author"> {{comment.theAuthor.getUsername()}} </span>
+      <span class="c-comment--post-date"> {{comment.postedAgo}} </span>
+  </div>
+  <div class="c-comment--text">
+      {{comment.theText}}
+  </div>
+
+</div>

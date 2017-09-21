@@ -1,0 +1,39 @@
+<div *ngIf="!isAddBuildingForm" class="c-building-card--container">
+    <div class="c-building-card--container-title">
+        <h1 class="c-building-card--title"> 
+            <span class="material-icons">account_balance</span>
+            {{building.buildingName}}
+        </h1>
+        <span *ngIf="loggedInUser.canUserAlterBuildings()" (click)="removeBuilding()" [ngClass]="{ 'btn-icon-disabled': !canBuildingBeRemoved }"  class="material-icons c-building-card--delete">delete</span>
+    </div>
+
+    <div class="c-building-card--floors-container">
+        <div class="c-building-card--floors" 
+            *ngFor="let floorKey of floorKeys;">
+                <div class="c-building-card--floorSectionList">
+                    <app-floor-card
+                        class="c-building-card-floor"
+                        *ngFor="let section of floors[floorKey]"
+                        [floor]="section"  
+                        [building]="building"  
+                        [floorAdded]="onFloorAdded"
+                        [floorRemoved]="onFloorRemoved"
+                    ></app-floor-card>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isAddBuildingForm" class="c-building-card--container c-building-card--AddingFormContainer">
+    <div class="c-building-card--container-title">
+        <form class="inline-form"  [formGroup]="addBuildingForm"  (ngSubmit)="addBuilding()">
+            <span align="center" class="material-icons">account_balance</span>
+            <label for="buildingName">
+                New Building:
+            </label>
+            <input placeholder="Building Name" name="buildingName" type="text" formControlName="buildingName" />
+            <span (click)="addBuilding()" class="material-icons c-building-card--add">add</span>
+        </form>
+    </div>
+
+</div>

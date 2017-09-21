@@ -1,0 +1,9 @@
+<div class="pm-buildings-gridContainer">
+    <app-building-card 
+    class=""
+    *ngFor="let item of buildings; let i = index"
+    [onBuildingAdded]="onBuildingAdded"
+    [onBuildingRemoved]="onBuildingRemoved"
+    [building]="buildings[i]"  > </app-building-card>
+</div>
+
