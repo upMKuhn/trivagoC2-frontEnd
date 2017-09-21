@@ -43,5 +43,7 @@ export class UserService extends StoreServiceBaseService {
     return userObservable;
   }
 
+  register(user:User) {
+  }
   
 }

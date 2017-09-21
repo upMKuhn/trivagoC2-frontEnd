@@ -34,6 +34,7 @@ import { IssueTableComponent } from './components/issue-table/issue-table.compon
 import { IssueFormComponent } from './components/issue-form/issue-form.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -66,6 +67,7 @@ const appRoutes: Routes = [
     IssueFormComponent,
     CommentSectionComponent,
     CommentFormComponent,
+    RegisterComponent,
   ],
   imports: [
     HttpModule,

@@ -1,8 +1,16 @@
 @import '../../CssUtils/myUtils.scss';
 
 
-app-login{
-    margin: auto;
+app-login,app-register{
     min-height: 65vh;
-    margin-top: 15vh;
+    margin: 0 1em;
+}
+
+.p-login--body{
+    padding-top:10em; 
+    display: flex;
+    height: 100%;
+    align-content: center;
+    align-items: baseline;
+    justify-content: center;
 }

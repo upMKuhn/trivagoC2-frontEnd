@@ -31,7 +31,7 @@ export class User extends JsonApiModel implements IUser {
         super(datastore, data);
     }
 
-    public static create(dataStore:DataStoreService, userName:string, email:string, role:number): User{
+    public static create(dataStore:DataStoreService, userName:string, email:string, role:number=1): User{
         var obj = new User(dataStore);
         obj.username = userName;
         obj.email = email;
