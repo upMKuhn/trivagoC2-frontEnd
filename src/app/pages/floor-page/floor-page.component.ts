@@ -35,18 +35,18 @@ export class FloorPageComponent implements OnInit, IIssueStateService {
   @ViewChild("progressingIssuesTable")
   private progressingIssuesTable:IssueTableComponent;
 
-  private openIssues:Issue[];
-  private blockedIssues:Issue[];
-  private progressingIssues:Issue[];
-  private resolvedIssues:Issue[];
+  public openIssues:Issue[];
+  public blockedIssues:Issue[];
+  public progressingIssues:Issue[];
+  public resolvedIssues:Issue[];
+  public loggedInUser:User;
+  
+  public  getOpenIssues:() => Observable<JsonApiQueryData<Issue>>;
+  public  getBlockedIssues:() => Observable<JsonApiQueryData<Issue>>;
+  public  getProgressingIssues:() => Observable<JsonApiQueryData<Issue>>;
+  public  getResolvedIssues:() => Observable<JsonApiQueryData<Issue>>;
+  public issueAdded:(issue:Issue) => void;
 
-  private  getOpenIssues:() => Observable<JsonApiQueryData<Issue>>;
-  private  getBlockedIssues:() => Observable<JsonApiQueryData<Issue>>;
-  private  getProgressingIssues:() => Observable<JsonApiQueryData<Issue>>;
-  private  getResolvedIssues:() => Observable<JsonApiQueryData<Issue>>;
-
-  private  issueAdded:(issue:Issue) => void;
-  private loggedInUser:User;
   constructor(
     private route: ActivatedRoute,
     private dataStore: DataStoreService,

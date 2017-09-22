@@ -18,19 +18,20 @@ import { User } from "../../models/user";
   encapsulation: ViewEncapsulation.None
 })
 export class IssueFormComponent implements OnInit {
-
+  
+  public issueForm:IssueFormGroup;
+  
   @Input("floor")
   private floor:BuildingFloor;
   @Input("onIssueAdded")
   private onIssueAdded:(issue:Issue)=>void;
 
-  private issueForm:IssueFormGroup;
   constructor(
     private issueStore:IssueService, 
     private authService:AuthService, 
-    private categoryStore: IssueCategoryService, 
-    private priorityStore:IssuePriorityService,
-    private stateStore:IssueStateService) {
+    public categoryStore: IssueCategoryService, 
+    public priorityStore:IssuePriorityService,
+    public stateStore:IssueStateService) {
     this.issueForm = new IssueFormGroup();
     this.onIssueAdded = Utils.getOrDefault(this.onIssueAdded, function(){});
   }

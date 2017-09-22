@@ -47,13 +47,13 @@ export class IssueService  {
   public getIssuesForFloorByState(id:string, state:string){
     return this.dataStore.findAll<Issue>(Issue,{
       include: 'priority,state,category,floor,creator,comments,subscriptions,subscriptions.subscriber',
-      'filters[1][type]': 'eq',
-      'filters[1][value]': id,
-      'filters[1][path]': 'floor.id',
+      'filter[1][type]': 'eq',
+      'filter[1][value]': id,
+      'filter[1][path]': 'floor.id',
 
-      'filters[0][type]': 'eq',
-      'filters[0][value]': state,
-      'filters[0][path]': 'state.name'
+      'filter[0][type]': 'eq',
+      'filter[0][value]': state,
+      'filter[0][path]': 'state.name'
     });
   }
 
@@ -61,52 +61,52 @@ export class IssueService  {
 
     return this.dataStore.findAll(Issue,{
       include: 'priority,state,category,floor,creator,comments,comments.author,subscriptions,subscriptions.subscriber',
-      'filters[1][type]': 'eq',
-      'filters[1][value]': id,
-      'filters[1][path]': 'floor.id',
+      'filter[1][type]': 'eq',
+      'filter[1][value]': id,
+      'filter[1][path]': 'floor.id',
 
-      'filters[0][type]': 'eq',
-      'filters[0][value]': '0',
-      'filters[0][path]': 'state.asNumber'
+      'filter[0][type]': 'eq',
+      'filter[0][value]': '0',
+      'filter[0][path]': 'state.asNumber'
     });
   }
 
   public getProgressingIssuesForFloor(id:string){
     return this.dataStore.findAll(Issue,{
       include: 'priority,state,category,floor,creator,comments,comments.author,subscriptions,subscriptions.subscriber',
-      'filters[1][type]': 'eq',
-      'filters[1][value]': id,
-      'filters[1][path]': 'floor.id',
+      'filter[1][type]': 'eq',
+      'filter[1][value]': id,
+      'filter[1][path]': 'floor.id',
 
-      'filters[0][type]': 'eq',
-      'filters[0][value]': '1',
-      'filters[0][path]': 'state.asNumber'
+      'filter[0][type]': 'eq',
+      'filter[0][value]': '1',
+      'filter[0][path]': 'state.asNumber'
     });
   }
 
   public getBlockedIssuesForFloor(id:string){
     return this.dataStore.findAll(Issue,{
       include: 'priority,state,category,floor,creator,comments,comments.author,subscriptions,subscriptions.subscriber',
-      'filters[1][type]': 'eq',
-      'filters[1][value]': id,
-      'filters[1][path]': 'floor.id',
+      'filter[1][type]': 'eq',
+      'filter[1][value]': id,
+      'filter[1][path]': 'floor.id',
 
-      'filters[0][type]': 'eq',
-      'filters[0][value]': '2',
-      'filters[0][path]': 'state.asNumber'
+      'filter[0][type]': 'eq',
+      'filter[0][value]': '2',
+      'filter[0][path]': 'state.asNumber'
     });
   }
 
   public getClosedIssuesForFloor(id:string){
     return this.dataStore.findAll(Issue,{
       include: 'priority,state,category,floor,creator,comments,comments.author,subscriptions,subscriptions.subscriber',
-      'filters[1][type]': 'eq',
-      'filters[1][value]': id,
-      'filters[1][path]': 'floor.id',
+      'filter[1][type]': 'eq',
+      'filter[1][value]': id,
+      'filter[1][path]': 'floor.id',
 
-      'filters[0][type]': 'eq',
-      'filters[0][value]': '3',
-      'filters[0][path]': 'state.asNumber'
+      'filter[0][type]': 'eq',
+      'filter[0][value]': '3',
+      'filter[0][path]': 'state.asNumber'
     });
   }
 

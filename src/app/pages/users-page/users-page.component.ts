@@ -12,7 +12,7 @@ import {  User } from "../../models/user";
 export class UsersPageComponent implements OnInit {
   
   private userService;
-  private users:User[]; 
+  public users:User[]; 
   public setUsers(users:User[]){ this.users = users;}  
   constructor(userService:UserService) { 
     userService.fetchAll(Utils.makeCallback(this, this.setUsers));

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   private router:Router;
 
   userModel:UserCredentials;
-  loginForm:LoginForm;  
+  public loginForm:LoginForm;  
 
 
   constructor(authService:AuthService, router:Router) {

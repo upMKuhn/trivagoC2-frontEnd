@@ -1,6 +1,6 @@
 
 <h1 class="p-floor-page--title">
-    Issues for {{_floor.floorName}}
+    Issues for {{floor.getFloorNumber()}}
     <button class="btn btn-info btn-small" *ngIf="loggedInUser.isHero() && !loggedInUser.isSubscribedToFloor(floor)" (click)="loggedInUser.subscribeFloor(floor)"> subscribe </button>
     <button class="btn btn-info btn-small" *ngIf="loggedInUser.isHero() && loggedInUser.isSubscribedToFloor(floor)" (click)="loggedInUser.unsubscribeFloor(floor)"> unsubscribe </button>
 </h1>

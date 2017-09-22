@@ -15,7 +15,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuildingsPageComponent implements OnInit {
 
-  private buildings:IBuilding[]; 
+  public buildings:IBuilding[]; 
   private user:IUser; 
   private authService:AuthService;
   private dataStore:DataStoreService;

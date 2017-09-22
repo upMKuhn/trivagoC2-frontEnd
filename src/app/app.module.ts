@@ -15,7 +15,6 @@ import { FloorCardComponent } from './components/floor-card/floor-card.component
 import { FloorPageComponent } from './pages/floor-page/floor-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
 import { HttpBasicAuthClient } from './services/http-basic-auth-client.service';
 import { HttpModule } from '@angular/http';
 import { IssueService } from './services/issue.service';
@@ -34,6 +33,7 @@ import { IssueTableComponent } from './components/issue-table/issue-table.compon
 import { IssueFormComponent } from './components/issue-form/issue-form.component';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -52,7 +52,6 @@ const appRoutes: Routes = [
 
     AppComponent,
     LoginComponent,
-    HomeComponent,
     NavbarComponent,
     FooterComponent,
     UserCardComponent,
@@ -66,6 +65,7 @@ const appRoutes: Routes = [
     IssueFormComponent,
     CommentSectionComponent,
     CommentFormComponent,
+    RegisterComponent,
   ],
   imports: [
     HttpModule,
