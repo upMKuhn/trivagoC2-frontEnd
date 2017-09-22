@@ -15,9 +15,9 @@ export class CommentFormComponent implements OnInit {
   @Input('issue')
   private issue:Issue;
 
-  private theMessage:string;
-  private messageMaxLen = 255;
-  private messageMinLen = 4;
+  public theMessage:string;
+  public messageMaxLen = 255;
+  public messageMinLen = 4;
 
   @Output() 
   commentPosted = new EventEmitter();

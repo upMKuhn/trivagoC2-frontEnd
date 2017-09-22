@@ -5,8 +5,8 @@ import { HttpBasicAuthClient } from './http-basic-auth-client.service';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { Utils } from "../utils/utils";
-import { User } from "../models/user";
 import { IUser } from "../models/iuser";
+import { User } from '../models/user';
 
 @Injectable()
 export class UserService extends StoreServiceBaseService {
@@ -43,7 +43,16 @@ export class UserService extends StoreServiceBaseService {
     return userObservable;
   }
 
-  register(user:User) {
+  register(user:User, password:string, onSuccess:(user:User)=>void) {
+    this.http.post('/api/register', {
+     username: user.getUsername(),
+     password: password, 
+     email: user.getEmail(), 
+    }).subscribe((response) => {
+        var data = response.json();
+        user.id = data['id'];
+        onSuccess(user);
+    });
   }
   
 }

@@ -20,10 +20,10 @@ export class FloorCardComponent implements OnInit {
   isFormCard:boolean;
 
   @Input('floor')
-  private floor:BuildingFloor;
+  public floor:BuildingFloor;
 
   @Input('building')
-  private building:Building;
+  public building:Building;
 
   @Input('floorAdded')
   floorAdded:(floor:BuildingFloor) => void
@@ -31,7 +31,7 @@ export class FloorCardComponent implements OnInit {
   @Input('floorRemoved')
   floorRemoved:(floor:BuildingFloor) => void
 
-  private addFloorForm:AddFloorForm;
+  public addFloorForm:AddFloorForm;
   private loggedInUser:User;
   constructor(private dataStore:DataStoreService, private router:Router, private userService:UserService, private auth:AuthService) {
     this.loggedInUser = auth.getUser();

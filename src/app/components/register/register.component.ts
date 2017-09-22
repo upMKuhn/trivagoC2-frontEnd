@@ -1,3 +1,5 @@
+import { AuthService } from './../../services/auth.service';
+import { Router } from '@angular/router';
 import { UserService } from './../../services/user.service';
 import { Utils } from './../../utils/utils';
 import { AuthGuardService } from './../../services/auth-guard.service';
@@ -13,8 +15,12 @@ import { User } from "../../models/user";
 })
 export class RegisterComponent implements OnInit {
 
-  private registerForm:RegisterForm;
-  constructor(private store:DataStoreService, private auth:AuthGuardService, private userService:UserService) { 
+  public registerForm:RegisterForm;
+  constructor(private store:DataStoreService, 
+    private auth:AuthService, 
+    private userService:UserService,
+    private router:Router
+  ){ 
     this.registerForm = new RegisterForm();
   }
 
@@ -25,19 +31,23 @@ export class RegisterComponent implements OnInit {
   register() {
     if(this.registerForm.valid && this.registerForm.dirty){
       var cred = this.registerForm.toUserCredentials();
-      var user = User.create(this.store, cred.username, cred.password)
-      user.save().subscribe(Utils.makeCallback(this, this.onRegisterSuccess, this.onRegisterFailed))
-      //this.userService.
+      var user = User.create(this.store, cred.username, cred.email)
+      this.userService.register(user, cred.password, () =>{
+        this.auth.login(cred, 
+          Utils.makeCallback(this, this.onRegisterSuccess),
+          Utils.makeCallback(this, this.onRegisterFailed)
+        );
+      });
     }
   }
 
   onRegisterFailed(){
-    console.log("login failed");
+    console.log("register failed");
   } 
 
   onRegisterSuccess(){
     console.log("login success");
-    //this.router.navigate(['buildings']);
+    this.router.navigate(['buildings']);
   }
 
 }

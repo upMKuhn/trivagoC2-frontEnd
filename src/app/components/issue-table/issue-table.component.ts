@@ -29,7 +29,7 @@ export class IssueTableComponent implements OnInit {
   @Input("getIssues")
   private getIssues:() => Observable<JsonApiQueryData<Issue>>;
   @Input("issues")
-  private issues:Issue[] = [];
+  public issues:Issue[] = [];
   private issueMeta:any;
   private issuePageNumbers=[];
 
@@ -42,7 +42,7 @@ export class IssueTableComponent implements OnInit {
   @Input("tableTitleIcon")
   private tableTitleIcon:string;
 
-  private user:User;
+  public user:User;
 
   @Input("hideActions")
   private hideActions:{ blockIssue:boolean, progressIssue:boolean, resolveIssue:boolean };

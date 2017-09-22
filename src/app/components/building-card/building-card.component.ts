@@ -21,12 +21,12 @@ export class BuildingCardComponent implements OnInit {
   isAddBuildingForm:boolean;
 
   @Input('building')
-  private building:IBuilding;
+  public building:IBuilding;
   @Input('onBuildingAdded')
   private onBuildingAdded:(building:Building)=>void;
   @Input('onBuildingRemoved')
   private onBuildingRemoved:(building:Building)=>void;
-  private floors;
+  public floors;
   private floorKeys = [];
 
   private onFloorAdded:Function;

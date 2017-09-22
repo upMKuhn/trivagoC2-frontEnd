@@ -10,7 +10,7 @@ import { IUser } from "../../models/iuser";
 })
 export class NavbarComponent implements OnInit {
 
-  private user:IUser;
+  public user:IUser;
   private auth:AuthService;
 
   constructor(auth:AuthService) { 

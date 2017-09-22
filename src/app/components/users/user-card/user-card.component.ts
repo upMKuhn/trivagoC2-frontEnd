@@ -11,7 +11,7 @@ import { IUser } from "../../../models/iuser";
 export class UserCardComponent implements OnInit {
 
   @Input('userList')
-  user:IUser;
+  public user:IUser;
   editMode:boolean = false;
   userCanEdit:boolean = true;
 

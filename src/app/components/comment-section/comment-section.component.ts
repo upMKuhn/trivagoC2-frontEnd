@@ -13,7 +13,7 @@ import { Issue } from "../../models/issue";
 })
 export class CommentSectionComponent implements OnInit {
 
-  private comments:IssueComment[];
+  public comments:IssueComment[];
   @Input('hide')
   private hide:boolean=false;
   @Input('issue')

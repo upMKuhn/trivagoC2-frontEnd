@@ -15,7 +15,6 @@ import { FloorCardComponent } from './components/floor-card/floor-card.component
 import { FloorPageComponent } from './pages/floor-page/floor-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
 import { HttpBasicAuthClient } from './services/http-basic-auth-client.service';
 import { HttpModule } from '@angular/http';
 import { IssueService } from './services/issue.service';
@@ -53,7 +52,6 @@ const appRoutes: Routes = [
 
     AppComponent,
     LoginComponent,
-    HomeComponent,
     NavbarComponent,
     FooterComponent,
     UserCardComponent,
