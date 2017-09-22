@@ -18,7 +18,7 @@ import { FloorSubscription } from "../models/floor-subscription";
 
 @Injectable()
 @JsonApiDatastoreConfig({
-  baseUrl: 'http://localhost:8000/api/db/',
+  baseUrl: '/api/db/',
   models: {
     users: User,
     buildings: Building,
