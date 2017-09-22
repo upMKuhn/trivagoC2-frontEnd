@@ -31,11 +31,11 @@ export class RegisterComponent implements OnInit {
   register() {
     if(this.registerForm.valid && this.registerForm.dirty){
       var cred = this.registerForm.toUserCredentials();
-      var user = User.create(this.store, cred.username, cred.email)
+      var user = User.create(this.store, cred.userIdentifier, cred.email)
       this.userService.register(user, cred.password, () =>{
         this.auth.login(cred, 
           Utils.makeCallback(this, this.onRegisterSuccess),
-          Utils.makeCallback(this, this.onRegisterFailed)
+          Utils.makeCallback(this, this.onRegisterFailed) 
         );
       });
     }

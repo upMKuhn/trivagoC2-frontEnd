@@ -44,8 +44,8 @@ export class UserService extends StoreServiceBaseService {
   }
 
   register(user:User, password:string, onSuccess:(user:User)=>void) {
-    this.http.post('/api/register', {
-     username: user.getUsername(),
+    this.http.post('/auth/register', {
+     username: user.getUsername(), 
      password: password, 
      email: user.getEmail(), 
     }).subscribe((response) => {
