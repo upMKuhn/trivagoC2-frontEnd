@@ -17,8 +17,8 @@ app-navbar{
 
 .c-navbar--main 
 {
-  
-  background: $primary-color;
+  color: $primary-color;
+  background: $third-color;
   border-bottom: 1px $gray-600 solid;
   display: flex;
   grid-auto-rows: 1;
@@ -29,8 +29,9 @@ app-navbar{
 
 
   .nav-item {
+    color: $white;
+    font-weight: bold;
     border-left: 1px solid $gray-600;
-    color: $black;
     padding: $spacer $spacer;
     font-weight: normal;
   }
@@ -42,6 +43,9 @@ app-navbar{
   .brand-name{
     @extend .mv-2;
     @extend .brand-name;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-self: center;
+    color: $white;
     flex-grow: 2;
   }
 }
